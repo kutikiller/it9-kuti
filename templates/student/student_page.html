@@ -1,0 +1,22 @@
+{% extends 'base_student.html' %}
+{% load static %}
+
+
+{% block head %}
+<div style="display: flex;">
+    {% for i in student_groups %}
+        <div class="card" style="width: 33.3%;margin: 10px;">
+            <div class="card-body">
+            <h5 class="card-title">title:{{ i.group }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">teacher:{{ i.group.teacher }}</h6>
+            <p class="card-text"></p>
+            <a href="{% url 'detail_group' i.group.id %}" class="btn btn-primary">Datail</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}

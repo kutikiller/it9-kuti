@@ -1,0 +1,26 @@
+{% load crispy_forms_tags %}
+
+<div hx-target="this" hx-swap="outerHTML" class="mt-3 py-3 px-3 bg-white shadow border border-gray-100">
+    <form method="POST" enctype="multipart/form-data" hx-encoding='multipart/form-data' >
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="col-md-3"> 
+                {{ form1|crispy }}
+            </div>
+        </div>
+        {% if studentgroup %}
+            <button type="submit" hx-post="{% url 'update-studentgroup' pk=studentgroup.pk %}"
+                    class="btn btn-sm btn-success mt-3">
+                Редактировать
+            </button>
+            <button hx-get="{% url 'detail-studentgroup' pk=studentgroup.pk %}" type="button"
+                    class="btn btn-sm btn-secondary mt-3">Отмена
+            </button>
+        {% else %}
+            <button type="submit" name="studentgroup" hx-post=""class="btn btn-sm btn-primary mt-3">
+                Создать
+            </button>
+            
+        {% endif %}
+    </form>
+</div>

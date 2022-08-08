@@ -1,0 +1,47 @@
+{% extends 'student/detail/base_lesson.html' %}
+{% load static %}
+
+
+{% block home_work_comment %}
+  <div style="display:flex; margin: -10px;">
+        <div style="width: 70%; margin-right: 20px;">
+          <h5 style="margin: 10px;">H/M</h5>
+            {% for i in home_work %}
+              <div class="card" style="margin: 10px;">
+                <div class="card-body">
+                  <h5 class="card-title" style="border-bottom: 1px solid #212529;">tema:{{ i.tema }}</h5>
+                  <p class="card-text">text:{{ i.text|safe }}</p>
+                  {% for l in home_work_student %}
+                  {% if i == l.home_work %}
+                  you create
+                  {% endif %}
+                  {% endfor %}
+                  <a href="{% url 'create_home_work_student' id_home_work=i.id id_lesson=lesson.id  %}" class="btn btn-primary">Create home work</a>
+                  
+                  
+                </div>
+              </div>
+              <hr>
+            {% endfor %}
+        </div>
+        <div style="width: 30%;">
+          <h5 style="margin: 10px;margin-bottom: 20px;"><a href="{% url 'create_comment' lesson.id %}" role="button">Comment</a></h5>
+            <div style="margin: -10px;">
+              {% for i in comment %}
+                <div class="card" style="margin: 10px;">
+                  <div class="card-body">
+                    <h5 class="card-title" style="border-bottom: 1px solid #212529;">student:{{ i.student }}</h5>
+                    <p class="card-text">text:{{ i.text|safe }}</p>
+                    {% if i.student.user == request.user %}
+                    <a href="{% url 'update_comment' id=i.id id_lesson=lesson.id %}" class="btn btn-primary">Update</a>
+                    <a href="{% url 'delete_comment' id=i.id id_lesson=lesson.id %}" class="btn btn-primary">Delete</a>
+                    {% else %}{% endif %}
+                  </div>
+                </div>
+                <hr>
+              {% endfor %}
+            </div>
+        </div>
+  </div>
+{% endblock %}
+

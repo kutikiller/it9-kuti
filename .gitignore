@@ -1,0 +1,6 @@
+bvenv
+__pycache__/
+*.pyc
+staticfiles
+.bvenv
+db.sqlite3

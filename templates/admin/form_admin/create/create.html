@@ -1,0 +1,15 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <hr class="mt-0 mb-4">
+            {% crispy form %}
+            <a href="{% url 'detail_group_admin' id %}"  class="btn btn-sm btn-primary">>></a>
+        </div>
+    </div>
+  </div>
+{% endblock %}

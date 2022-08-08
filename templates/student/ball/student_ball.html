@@ -1,0 +1,106 @@
+{% extends 'base_student.html' %}
+{% load static %}
+
+
+{% block content %}
+<style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial;
+      margin: 0 auto; /* Center website */
+      padding: 20px;
+    }
+    
+    .heading {
+      font-size: 25px;
+      margin-right: 25px;
+    }
+    
+    .fa {
+      font-size: 25px;
+    }
+    
+    .checked {
+      color: orange;
+    }
+    .fa-star-half-o{
+    color:orange;}
+    
+    /* Three column layout */
+    .side {
+      float: left;
+      width: 15%;
+      margin-top:10px;
+    }
+    
+    .middle {
+      margin-top:10px;
+      float: left;
+      width: 70%;
+    }
+    
+    /* Place text to the right */
+    .right {
+      text-align: right;
+    }
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* The bar container */
+    .bar-container {
+      width: 100%;
+      background-color: #f1f1f1;
+      text-align: center;
+      color: white;
+    }
+    
+    /* Individual bars */
+    .bar-1 {width: 10%; height: 18px; background-color: #2196F3;}
+    .bar-2 {width: 20%; height: 18px; background-color: #2196F3;}
+    .bar-3 {width: 30%; height: 18px; background-color: #2196F3;}
+    .bar-4 {width: 40%; height: 18px; background-color: #2196F3;}
+    .bar-5 {width: 50%; height: 18px; background-color: #2196F3;}
+    .bar-6 {width: 60%; height: 18px; background-color: #2196F3;}
+    .bar-7 {width: 70%; height: 18px; background-color: #2196F3;}
+    .bar-8 {width: 80%; height: 18px; background-color: #2196F3;}
+    .bar-9 {width: 90%; height: 18px; background-color: #2196F3;}
+    .bar-10 {width: 100%; height: 18px; background-color: #2196F3;}
+    
+    /* Responsive layout - make the columns stack on top of each other instead of next to each other */
+    @media (max-width: 400px) {
+      .side, .middle {
+        width: 100%;
+      }
+      .right {
+        display: none;
+      }
+    }
+    </style>
+{% endblock %} 
+{% block head %}
+<span class="heading">{{ student }}</span>
+<hr style="border:3px solid #f1f1f1">
+
+<div class="row">
+{% for i in ball %}
+  <div class="side">
+    <div>{{i.create_data}}</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-{{i.ball}}"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>{{i.ball}}</div>
+  </div>
+{% endfor %}
+{% endblock %}

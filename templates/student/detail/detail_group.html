@@ -1,0 +1,56 @@
+{% extends 'base_student.html' %}
+{% load static %}
+
+
+{% block head %}
+<div class="card mb-4">
+    <div class="card-body">
+    <h5 class="card-title">title:{{ group.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted" style="display: flex;">teacher: 
+      <div style="width: 60px;">
+      <img width="100%" src="{% if group.teacher.image %}{{ group.teacher.image.url }}{% endif %}" class="rounded-circle " alt="...">
+      </div>
+      /{{ group.teacher.user }}/{{ group.teacher.surname }}/{{ group.teacher.tel_num }}</h6>
+    <p class="card-text"></p>
+    </div>
+</div>
+    <div style="display:flex;">
+        <div style="width: 70%;margin-right: 20px;">
+            {% for i in lesson %}
+            <div class="card mb-4">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    {% for i in i.daily_material.all %}
+                    tema:{{ i.tema }}<hr>
+                    {% endfor %}
+                    </h5>
+                  <h6 class="card-subtitle mb-2 text-muted">group:{{ i.group }}</h6>
+                  <p class="card-text"></p>
+                  <a href="{% url 'detail_lesson' i.id %}" class="btn btn-primary">Lesson</a>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+        <div style="width: 30%;">
+            {% for i in students %}
+            <div class="card mb-4">
+                <div class="card-body">
+                  <div style="width: 50px;">
+                  <img width="100%" src="{% if i.student.image %}{{ i.student.image.url }}{% endif %}" class="rounded-circle " alt="...">
+                  </div>
+                  <h5 class="card-title">{{ i.student.user }}</h5>
+                  <p class="card-text">{{ i.student.surname }}</p>
+                  <p class="card-text">{{ i.student.tel_num }}</p>
+                </div>
+                <div class="card-body">
+                  <a href="{% url 'student_ball' i.id %}" class="btn btn-primary">student_ball</a>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}

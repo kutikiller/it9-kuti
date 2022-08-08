@@ -1,0 +1,23 @@
+{% extends 'base_student.html' %}
+{% load static %}
+
+
+{% block head %}
+<h5 >Lesson</h5>
+  <div style="display: flex; margin: -10px;">
+    {% for i in lesson.daily_material.all %}
+      <div class="card" style="width: 50%;margin: 10px;">
+        <div class="card-body">
+          <h5 class="card-title" style="border-bottom: 1px solid #212529;">tema:{{ i.tema }}</h5>
+          <p class="card-text">text:{{ i.text|safe }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  {% block home_work_comment %}
+  {% endblock %}
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
