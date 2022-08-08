@@ -184,6 +184,10 @@ CKEDITOR_CONFIGS = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+
+
+
 # """
 # Django settings for blog project.
 
@@ -196,39 +200,24 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://docs.djangoproject.com/en/4.0/ref/settings/
 # """
 
-# import dj_database_url
 # import os
-# from django.test.runner import DiscoverRunner
 # from pathlib import Path
 
 
 # # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
 
-# IS_HEROKU = "DYNO" in os.environ
 # # Quick-start development settings - unsuitable for production
 # # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = "CHANGE_ME!!!! (P.S. the SECRET_KEY environment variable will be used, if set, instead)."
-# # SECRET_KEY = 'django-insecure-*c*k$j$(lm4a1#g(m6q5tfhlj!)sa-ia^5&f1narj1=jj%oc*-'
+# SECRET_KEY = 'django-insecure-*c*k$j$(lm4a1#g(m6q5tfhlj!)sa-ia^5&f1narj1=jj%oc*-'
 
-# if 'SECRET_KEY' in os.environ:
-#     SECRET_KEY = os.environ["SECRET_KEY"]
 
 # # SECURITY WARNING: don't run with debug turned on in production!
-# # DEBUG = True
+# DEBUG = True
 
-# # ALLOWED_HOSTS = []
-# if IS_HEROKU:
-#     ALLOWED_HOSTS = ["*"]
-# else:
-#     ALLOWED_HOSTS = []
-
-# if not IS_HEROKU:
-#     DEBUG = True
-
-
+# ALLOWED_HOSTS = []
 
 # # Application definition
 
@@ -281,7 +270,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # # Database
 # # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# MAX_CONN_AGE = 600
 
 # DATABASES = {
 #     "default": {
@@ -340,7 +328,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, "static", "static_dirs")]
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # MEDIA_URL = '/media/'
@@ -384,17 +371,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # # Default primary key field type
 # # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
-# class HerokuDiscoverRunner(DiscoverRunner):
-#     """Test Runner for Heroku CI, which provides a database for you.
-#     This requires you to set the TEST database (done for you by settings().)"""
-
-#     def setup_databases(self, **kwargs):
-#         self.keepdb = True
-#         return super(HerokuDiscoverRunner, self).setup_databases(**kwargs)
-
-
-# # Use HerokuDiscoverRunner on Heroku CI
-# if "CI" in os.environ:
-#     TEST_RUNNER = "blog.settings.HerokuDiscoverRunner"
 
 # DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
