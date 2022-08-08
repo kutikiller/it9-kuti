@@ -78,7 +78,7 @@ def createHomeWorkStudent(request,id_home_work,id_lesson):
             # messages.success(request, 'you create')
             return redirect('detail_lesson',id_lesson)
         else:
-            handler500()
+            return render(request, 'general/500.html',)
     else:
         form = HomeWorkResultkForm()
     context = {

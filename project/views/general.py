@@ -79,6 +79,3 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
-
-def error_500(request,):
-    return render(request, 'general/500.html',)
