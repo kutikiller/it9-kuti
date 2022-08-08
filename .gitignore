@@ -1,6 +1,6 @@
 bvenv
 __pycache__/
 *.pyc
-staticfiles
+blog
 .bvenv
 db.sqlite3
