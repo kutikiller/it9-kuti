@@ -6,7 +6,7 @@ def unauthenticated_user(view_func):
     def wrapper_func(request, *args, **kwargs):
         if request.user.is_authenticated:
             if request.user.groups.all()[0].name == 'admin':
-                return redirect('admin_page')
+                return redirect('admin/')
 
             elif request.user.groups.all()[0].name == 'student':
                 return redirect('student_page')
