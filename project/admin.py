@@ -76,7 +76,7 @@ admin.site.register(Lesson,LessonAdmin)
 
 class HomeWorkAdmin(admin.ModelAdmin):
     list_filter=('tema','text','create_data')
-    fields = ['tema','text']
+    fields = ['tema','text',"lesson"]
     list_display = ['tema','create_data']
     filter_horizontal=["lesson"]
     inlines = [HomeWorkResultextra]
